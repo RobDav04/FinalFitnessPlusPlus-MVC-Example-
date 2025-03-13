@@ -1,0 +1,64 @@
+﻿@model FinalFitnessPlusPlus.ViewModel.ExerciseIndexViewModel
+
+@using (Html.BeginForm("Index", "Exercises", FormMethod.Get))
+{
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-3">
+                <label>Filter by muscle group:</label>
+                @Html.DropDownListFor(vm => vm.SelectedMuscleGroupId, Model.MuscleFilterItems, "All", new { @class = "form-control mb-3" })
+            </div>
+            <div class="col-3">
+                <label>Sort by:</label>
+                @Html.DropDownListFor(vm => vm.SortBy, new SelectList(Model.Sorts, "Value", "Key", Model.SortBy), "Default", new { @class = "form-control mb-3" })
+            </div>
+            <div class="col-3">
+                <label>Apply filter:</label>
+                <br />
+                <input type="submit" value="Filter" class="btn btn-primary mb-3" />
+            </div>
+            <div class="col-3">
+                <label>Create new exercise:</label>
+                <br />
+                @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary mb-3" })
+            </div>
+        </div>
+        <br />
+    </div>
+
+}
+
+@{
+    var groupedExercises = Model.Exercises.GroupBy(e => e.MuscleGroup.Name);
+}
+
+@foreach (var group in Model.MuscleWithCount)
+{
+    <h2>@group.MuscleName</h2>
+
+    <div class="row">
+        @foreach (var exercise in Model.Exercises.Where(e => e.MuscleGroupID == group.ID))
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card exercise-card">
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => exercise.Name)</h5>
+                        <p class="card-text">
+                            <strong>Percentage of 1RM:</strong> @Html.DisplayFor(modelItem => exercise.PercentageOf1RM)<br />
+                            <strong>Repetitions:</strong> @Html.DisplayFor(modelItem => exercise.Repetitions)<br />
+                            <strong>Total Sets:</strong> @Html.DisplayFor(modelItem => exercise.TotalSets)<br />
+                            <strong>Description:</strong> @Html.DisplayFor(modelItem => exercise.Description)
+                        </p>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                @Html.ActionLink("Edit", "Edit", new { id = exercise.ID }, new { @class = "btn btn-warning btn-sm" })
+                                @Html.ActionLink("Details", "Details", new { id = exercise.ID }, new { @class = "btn btn-info btn-sm" })
+                                @Html.ActionLink("Delete", "Delete", new { id = exercise.ID }, new { @class = "btn btn-danger btn-sm" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

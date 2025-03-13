@@ -1,0 +1,58 @@
+﻿@model FinalFitnessPlusPlus.Models.Exercise
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="card justify-content-center mx-auto">
+    <div class="form-group d-flex flex-column align-items-center">
+        <h2>@ViewBag.Title</h2>
+        <h4>Exercise</h4>
+        <hr />
+    </div>
+    <dl class="form-group d-flex flex-column align-items-center">
+        <dt>
+            @Html.DisplayNameFor(model => model.MuscleGroup.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MuscleGroup.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PercentageOf1RM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PercentageOf1RM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Repetitions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Repetitions)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <div class="form-actions no-color">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn btn-success" })
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary ml-2" })
+        </div>
+    </dl>
+</div>

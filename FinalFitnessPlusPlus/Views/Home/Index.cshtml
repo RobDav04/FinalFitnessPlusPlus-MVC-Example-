@@ -1,0 +1,56 @@
+﻿@{
+    Layout = null;
+}
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <link rel="stylesheet" type="text/css" href="~/Content/StyleSheet.css" />
+
+    @Html.Partial("_Navbar")
+    <div class="bg-image d-flex flex-column justify-content-center align-items-center" id="main-background">
+        <!-- Heading placed above the cards -->
+        <h2 id="myHeading" style=" opacity: 0; transition: opacity 3s;">
+            Welcome to FitnessPlusPlus!
+        </h2>
+        <!-- Cards container -->
+        <div class="d-flex justify-content-center">
+            <div class="card home-page-card">
+                <img class="card-img-top" src="~/Content/Images/about.jpg" alt="Card image about" />
+                <div class="card-body">
+                    <h5 class="card-title">About</h5>
+                    <p class="card-text">Learn about 1 Rep Max and how to calculate it.</p>
+                    <a href="@Url.Action("About", "Home")" class="btn btn-primary">About</a>
+                </div>
+            </div>
+
+            <div class="card home-page-card">
+                <img class="card-img-top" src="~/Content/Images/musclegroup.jpg" alt="Card image muscle group" />
+                <div class="card-body">
+                    <h5 class="card-title">Muscle Group</h5>
+                    <p class="card-text">After a certain muscle group? Search via muscle groups</p>
+                    <a href="@Url.Action("Index", "MuscleGroups")" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+
+
+            <div class="card home-page-card">
+                <img class="card-img-top" src="~/Content/Images/exercise.jpg" alt="Card image exercise" />
+                <div class="card-body">
+                    <h5 class="card-title">All Exercises</h5>
+                    <p class="card-text">Search all our exercises across all msucle groups</p>
+                    <a href="@Url.Action("Index", "Exercises")" class="btn btn-primary">Exercises</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    @Html.Partial("_Footer")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+</main>

@@ -1,0 +1,66 @@
+﻿@model FinalFitnessPlusPlus.Models.Exercise
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="card justify-content-center mx-auto">
+        <div class="form-horizontal text-center">
+            <h2>@ViewBag.Title</h2>
+            <h4>Exercise</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group d-flex flex-column align-items-center">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group d-flex flex-column align-items-center">
+                @Html.LabelFor(model => model.PercentageOf1RM, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.PercentageOf1RM, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PercentageOf1RM, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group d-flex flex-column align-items-center">
+                @Html.LabelFor(model => model.Repetitions, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.Repetitions, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Repetitions, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group d-flex flex-column align-items-center">
+                @Html.LabelFor(model => model.TotalSets, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.TotalSets, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TotalSets, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group d-flex flex-column align-items-center">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group d-flex flex-column align-items-center">
+                @Html.LabelFor(model => model.MuscleGroupID, "MuscleGroupID", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.DropDownList("MuscleGroupID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MuscleGroupID, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group d-flex flex-column align-items-center">
+                <div class="col-md-offset-2 col-md-10">
+                    <br />
+                    <input type="submit" value="Create" class="btn btn-success" />
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary ml-2" })
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,115 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<main aria-labelledby="title" id="about-main">
+    <link rel="stylesheet" type="text/css" href="~/Content/StyleSheet.css" />
+    <div class="container">
+        <div class="title text-center">
+            <h2 id="title">@ViewBag.Title.</h2>
+        </div>
+        <div class="card">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img class="img-fluid" src="~/Content/Images/squat.jpg" alt="Card image 1RM" />
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h3>One rep max (1RM)</h3>
+                            <p class="card-text">
+                                In the exercise section of this website "1RM" is often referred to. 1RM stands for “One rep max”
+                                and percentages based on a person's 1RM is used to dictate the working weight of the set. 1RM
+                                means the highest weight a person is able to perform a single repetition on for that exercise.
+                                For inexperienced individuals self testing 1RM is dangerous. Below this section is a 1RM
+                                calculator to predict your expected 1RM. It will also show percentages based off your
+                                predicted 1RM. This can be applied to the exercises in the exercises tab.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="card">
+            <div class="row g-0">
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h3>Different types of equipment</h3>
+                            <p class="card-text">
+                                Throughout the exercise section different equipment is referred to.
+                                Those being the barbell dumbbell and cable machine. Each comes with their own benefits
+                                and applications. Barbell is popular with exercises like bench press, squat and deadlift.
+                                Often favored for strength training. Dumbbells are very versatile and can help target specific
+                                muscle groups. Cable machines are favored for failure sets. Due to their safety.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <img class="img-fluid" src="~/Content/Images/equipment.jpg" alt="Card image equipment" />
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="card">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img class="img-fluid" src="~/Content/Images/use.jpg" alt="Card image using website" />
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h3>Using this website</h3>
+                            <p class="card-text">
+                                This website will allow you to get new ideas for exercises with recommended 1RM percentages,
+                                reps and total sets. Keep in mind that you are free to change the weight, reps and sets to your
+                                liking. As they are only a baseline for recommendations. You can add your own muscle groups,
+                                exercises. This website is made for keeping a database of exercises. So if you are wanting
+                                to change up the exercises you perform at the gym you will have a large selection to pick from.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="container">
+        <div class="row justify-content-center text-center" id="calc-container">
+            <div class="col-md-6" id="calc-item">
+                <p>Weight (KG):</p>
+            </div>
+            <div class="col-md-6" id="calc-item">
+                <input type="number" id="weight-KG" name="weightKG" placeholder="Enter your weight in KG" />
+            </div>
+        </div>
+        <div class="row justify-content-center text-center" id="calc-container">
+            <div class="col-md-6" id="calc-item">
+                <p>Total Reps:</p>
+            </div>
+            <div class="col-md-6" id="calc-item">
+                <input type="number" id="reps-completed" name="repsCompleted" placeholder="Enter total reps completed" />
+            </div>
+        </div>
+        <div class="row justify-content-center text-center" id="calc-container">
+            <div class="col-md-6" id="calc-item">
+                <a class="btn btn-primary" id="calc-button" onclick="calculate1RM()">Calculate 1RM</a>
+            </div>
+            <div class="col-md-6" id="calc-item">
+                <p id="change-1Rm">Your estimated 1RM is:</p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center text-center" id="percentage-results-container" style="display: none;">
+            <div class="col-md-12" id="calc-item">
+                <p id="change-90">90% of your 1RM:</p>
+                <p id="change-80">80% of your 1RM:</p>
+                <p id="change-70">70% of your 1RM:</p>
+                <p id="change-60">60% of your 1RM:</p>
+                <p id="change-50">50% of your 1RM:</p>
+            </div>
+            <br />
+        </div>
+    </div>
+</main>

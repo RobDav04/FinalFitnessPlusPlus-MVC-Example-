@@ -1,0 +1,28 @@
+﻿@model IEnumerable<FinalFitnessPlusPlus.Models.MuscleGroup>
+
+<h2>Muscle Groups</h2>
+<link rel="stylesheet" type="text/css" href="~/Content/StyleSheet.css" />
+
+@Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary mb-3" })
+
+<div class="row">
+    @foreach (var muscleGroup in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body exercise-card">
+                    <h5 class="card-title">
+                        @Html.ActionLink(muscleGroup.Name, "Index", "Exercises", new { SelectedMuscleGroupID = muscleGroup.ID }, null)
+                    </h5>
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            @Html.ActionLink("Edit", "Edit", new { id = muscleGroup.ID }, new { @class = "btn btn-warning btn-sm" })
+                            @Html.ActionLink("Details", "Details", new { id = muscleGroup.ID }, new { @class = "btn btn-info btn-sm" })
+                            @Html.ActionLink("Delete", "Delete", new { id = muscleGroup.ID }, new { @class = "btn btn-danger btn-sm" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,25 @@
+﻿@model FinalFitnessPlusPlus.Models.MuscleGroup
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<div class="card justify-content-center mx-auto">
+    <div class="form-horizontal text-center">
+        <h2>@ViewBag.Title</h2>
+        <h4>MuscleGroup</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn btn-success" })
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary ml-2" })
+        </dl>
+    </div>
+</div>
